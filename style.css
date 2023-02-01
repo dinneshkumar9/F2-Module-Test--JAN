@@ -1,0 +1,136 @@
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+#imageBox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#img1 {
+  content: url(https://images.unsplash.com/photo-1560363199-a1264d4ea5fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);
+}
+#img2 {
+  content: url(https://images.unsplash.com/photo-1553175536-c4a6cb24acb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=441&q=80);
+}
+#img3 {
+  content: url(https://images.unsplash.com/photo-1560765447-da05a55e72f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+}
+#img4 {
+  content: url(https://images.unsplash.com/photo-1577936344574-09f7823a8bb9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+}
+img {
+  margin: 10px;
+  width: 240px;
+  height: 210px;
+}
+img:hover {
+  border: 3px solid rgb(41, 33, 33);
+  cursor: pointer;
+}
+
+form {
+  margin: 20px;
+  display: none;
+}
+fieldset {
+  font-size: large;
+  font-weight: 700;
+  width: 400px;
+  border-radius: 10px;
+  text-align: end;
+  background-color: coral;
+}
+
+input {
+  font-size: large;
+  width: 300px;
+  border-radius: 10px;
+  color: yellow;
+  background-color: black;
+}
+
+#submitBtn {
+  padding: 5px 15px;
+  color: coral;
+  background-color: black;
+  border-radius: 10px;
+}
+
+#submitBtn:hover {
+  cursor: pointer;
+  padding: 5px 15px;
+  color: yellow;
+  background-color: black;
+  border-radius: 10px;
+}
+
+#showUser {
+  display: none;
+}
+span {
+  color: coral;
+}
+
+#dice {
+  display: none;
+  content: url(https://images.unsplash.com/photo-1635173250597-00863d9ce454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+  width: 240px;
+  height: 210px;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+#diceImg {
+  display: flex;
+  justify-content: center;
+}
+
+#coupon-image {
+  display: none;
+  margin-left: 30%;
+  max-width: 600px;
+  content: url(https://www.luvzilla.com/wp-content/uploads/2021/01/Sample-Congratulatory-Messages-For-New-Appointment.jpg);
+}
+#coupon-image:hover {
+  border: unset;
+  cursor: unset;
+}
+
+#coupon-code {
+  margin: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: 500;
+}
