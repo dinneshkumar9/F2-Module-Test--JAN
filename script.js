@@ -4,7 +4,9 @@ let img3 = document.getElementById("img3");
 let img4 = document.getElementById("img4");
 let form = document.getElementById("form");
 let dice = document.getElementById("dice");
-
+let diceTry = document.getElementById("diceTry");
+let dicePoint = document.getElementById("dicePoint");
+let diceSum = document.getElementById("diceSum");
 let userData = [];
 
 //form appears when the user clicks on the image1
@@ -68,7 +70,7 @@ let img3Clicked = false;
 let img4Clicked = false;
 let diceRolls = [];
 let diceRollsSum = 0;
-let tries = 0;
+let tries = 2;
 
 function shake() {
   let element = document.getElementById("dice");
@@ -77,8 +79,13 @@ function shake() {
     element.style.animationName = "";
   }, 500);
   let roll = Math.floor(Math.random() * 6) + 1;
+
   diceRolls.push(roll);
   diceRollsSum += roll;
+  diceRolls.forEach(function (e) {
+    dicePoint.innerHTML = "Points : " + e;
+    diceSum.innerHTML = "Total : " + diceRollsSum;
+  });
 
   if (diceRolls.length >= 3) {
     if (diceRollsSum > 10) {
@@ -86,11 +93,18 @@ function shake() {
       img4Clicked = true;
       img3.style.display = "inline";
       dice.style.display = "none";
-    } else if (tries < 1) {
+      dicePoint.innerHTML = "";
+      diceSum.innerHTML = "";
+      document.getElementById("result").innerHTML = "Click 4th image";
+    } else if (tries > 1) {
       diceRolls = [];
       diceRollsSum = 0;
-      tries++;
-      alert("Try again, you need to score more than 10!");
+      tries--;
+      alert(
+        "Try again, you need to score more than 10! You have " +
+          tries +
+          " tries left."
+      );
     } else {
       document.getElementById("coupon-code").innerHTML = "BAD LUCK";
       img3Clicked = true;
@@ -100,19 +114,18 @@ function shake() {
     }
   }
 }
-
 document.getElementById("dice").addEventListener("click", shake);
 
 img3.addEventListener("click", () => {
-  if (img2Clicked) {
-    if (!img3Clicked) {
-      document.getElementById("dice").style.display = "inline";
-      img3.style.display = "none";
-    } else {
-      document.getElementById("dice").style.display = "none";
-      img3.style.display = "inline";
-    }
+   if (img2Clicked) {
+  if (!img3Clicked) {
+    document.getElementById("dice").style.display = "inline";
+    img3.style.display = "none";
+  } else {
+    document.getElementById("dice").style.display = "none";
+    img3.style.display = "inline";
   }
+   }
 });
 
 // When the user clicks on the image4 , Coupon code is generated and displayed on the page and an congratulations image is shown
@@ -127,6 +140,7 @@ function generateCoupon() {
         Math.floor(Math.random() * possibleCharacters.length)
       );
     }
+    document.getElementById("result").innerHTML = "";
     let couponDisplay = document.getElementById("coupon-code");
     couponDisplay.innerHTML = "Coupon : " + coupon;
     let couponImage = document.getElementById("coupon-image");
